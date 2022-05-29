@@ -1,17 +1,23 @@
 import React from 'react';
-type UserProps = {
-    name : string,
-    age: number,
-    addUser: ()=>void
-}
+import UserModel from '../Types/UserModel';
 
-const User = ({name, age, addUser} : UserProps): JSX.Element => {
-    
+
+type UserProps = {
+    user : UserModel
+    addTeam : (user: UserModel) => void //function prop defining
+}
+//props type defining 
+
+const User = ({user,addTeam} : UserProps): JSX.Element  => {
+
 
 
     return (
         <div>
-            
+            <h2>{user.name}</h2>
+            <h2>{user.email}</h2>
+            <hr />
+            <button onClick={()=> addTeam(user)} >ADD</button>
         </div>
     );
 };
